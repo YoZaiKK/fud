@@ -1,15 +1,44 @@
-export const getTasks = (req, res) => {
-	res.send("obteniendo tareas");
+import { pool } from "../db.js";
+
+export const getTasks = async (req, res) => {
+	const [result] = await pool.query(
+		"SELECT * FROM tasks ORDER BY createdAt ASC"
+	);
+	console.log(result);
+	res.json(result);
 };
-export const getTask = (req, res) => {
-	res.send("obteniendo una tarea");
+
+export const getTask = async (req, res) => {
+	const [result] = await pool.query("SELECT * FROM tasks WHERE id = ?", [
+		req.params.id,
+	]);
+	// console.log(result);
+	if (result.length === 0) {
+		return res.status(404).json({ message: "Task not found" });
+	}
+	return res.json(result[0]);
 };
-export const createTasks = (req, res) => {
-	res.send("creando tareas");
+
+export const createTasks = async (req, res) => {
+	const { title, description } = req.body;
+	const [result] = await pool.query(
+		"INSERT INTO tasks(title, description) VALUES(?, ?)",
+		[title, description]
+	);
+	console.log(result);
+	res.json({ id: result.insertId, title, description });
 };
-export const updateTasks = (req, res) => {
+
+export const updateTasks = async (req, res) => {
 	res.send("actualizando tarea");
 };
-export const deleteTasks = (req, res) => {
-	res.send("eliminando tarea");
+
+export const deleteTasks = async (req, res) => {
+	const [result] = await pool.query("DELETE FROM tasks WHERE id = ?", [
+		req.params.id,
+	]);
+	if (result.length === 0) {
+		return res.status(404).json({ message: "Task not found" });
+	}
+	return res.sendStatus(204);
 };
