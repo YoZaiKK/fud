@@ -1,6 +1,10 @@
 import { Formik } from "formik";
 import { createTaskRequest } from "../api/task.api";
+import { TaskContext } from "../context/TaskContext";
+import { useContext } from "react";
+
 export const TaskForm = () => {
+	useContext(TaskContext);
 	return (
 		<div>
 			<Formik
