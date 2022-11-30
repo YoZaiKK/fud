@@ -1,15 +1,15 @@
 import { Formik } from "formik";
-import { useTasks } from "../context/TaskContext"; 
+import { useTasks } from "../context/TaskContext";
 
 export const TaskForm = () => {
-	const { createTask } = useTasks(); 
+	const { createTask } = useTasks();
 	return (
 		<div>
 			<Formik
 				initialValues={{ title: "", description: "" }}
 				onSubmit={async (values, actions) => {
-					console.log(values); 
-					createTask(values)
+					console.log(values);
+					createTask(values);
 					actions.resetForm();
 				}}
 			>
