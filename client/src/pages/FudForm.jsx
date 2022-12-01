@@ -1,11 +1,11 @@
 import { Formik } from "formik";
-import { useTasks } from "../context/TaskContext";
+import { useFuds } from "../context/FudContext";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export const TaskForm = () => {
-	const { createTask, getTask, updateTask } = useTasks();
-	const [tasks, setTasks] = useState({
+export const FudForm = () => {
+	const { createFud, getFud, updateFud } = useFuds();
+	const [fuds, setFuds] = useState({
 		title: "",
 		description: "",
 	});
@@ -13,31 +13,31 @@ export const TaskForm = () => {
 	const params = useParams();
 
 	useEffect(() => {
-		const loadTask = async () => {
+		const loadFud = async () => {
 			if (params.id) {
-				const values = await getTask(params.id);
+				const values = await getFud(params.id);
 				console.log(values);
-				setTasks({
+				setFuds({
 					title: values.title,
 					description: values.description,
 				});
 			}
 		};
-		loadTask();
+		loadFud();
 	}, []);
 
 	return (
 		<div>
-			<h1>{params.id ? "Edit Task" : "Create Task"}</h1>
+			<h1>{params.id ? "Edit Fud" : "Create Fud"}</h1>
 			<Formik
-				initialValues={tasks}
+				initialValues={fuds}
 				enableReinitialize={true}
 				onSubmit={async (values, actions) => {
 					console.log(values);
 					params.id
-						? await updateTask(params.id, values)
-						: await createTask(values);
-					setTasks({ title: "", description: "" });  
+						? await updateFud(params.id, values)
+						: await createFud(values);
+					setFuds({ title: "", description: "" });  
 					navigate("/");
 				}}
 			>

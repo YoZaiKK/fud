@@ -1,6 +1,6 @@
 import { pool } from "../db.js";
 
-export const getTasks = async (req, res) => {
+export const getFuds = async (req, res) => {
 	try {
 		const [result] = await pool.query(
 			"SELECT * FROM tasks ORDER BY createdAt ASC"
@@ -11,13 +11,13 @@ export const getTasks = async (req, res) => {
 	}
 };
 
-export const getTask = async (req, res) => {
+export const getFud = async (req, res) => {
 	try {
 		const [result] = await pool.query("SELECT * FROM tasks WHERE id = ?", [
 			req.params.id,
 		]);
 		if (result.length === 0) {
-			return res.status(404).json({ message: "Task not found" });
+			return res.status(404).json({ message: "Fud not found" });
 		}
 		return res.json(result[0]);
 	} catch (error) {
@@ -25,7 +25,7 @@ export const getTask = async (req, res) => {
 	}
 };
 
-export const createTasks = async (req, res) => {
+export const createFuds = async (req, res) => {
 	try {
 		const { title, description } = req.body;
 		const [result] = await pool.query(
@@ -38,7 +38,7 @@ export const createTasks = async (req, res) => {
 	}
 };
 
-export const updateTasks = async (req, res) => {
+export const updateFuds = async (req, res) => {
 	try {
 		const result = await pool.query("UPDATE tasks SET ? WHERE id = ?", [
 			req.body,
@@ -51,13 +51,13 @@ export const updateTasks = async (req, res) => {
 	}
 };
 
-export const deleteTasks = async (req, res) => {
+export const deleteFuds = async (req, res) => {
 	try {
 		const [result] = await pool.query("DELETE FROM tasks WHERE id = ?", [
 			req.params.id,
 		]);
 		if (result.length === 0) {
-			return res.status(404).json({ message: "Task not found" });
+			return res.status(404).json({ message: "Fud not found" });
 		}
 		return res.sendStatus(204);
 	} catch (error) {
