@@ -2,6 +2,9 @@ import { Formik } from "formik";
 import { useFuds } from "../context/FudContext";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 
 export const FudForm = () => {
 	const { createFud, getFud, updateFud } = useFuds();
@@ -27,7 +30,7 @@ export const FudForm = () => {
 	}, []);
 
 	return (
-		<div>
+		<Container>
 			<h1>{params.id ? "Edit Fud" : "Create Fud"}</h1>
 			<Formik
 				initialValues={fuds}
@@ -37,36 +40,40 @@ export const FudForm = () => {
 					params.id
 						? await updateFud(params.id, values)
 						: await createFud(values);
-					setFuds({ title: "", description: "" });  
+					setFuds({ title: "", description: "" });
 					navigate("/");
 				}}
 			>
 				{({ handleChange, handleSubmit, values, isSubmitting }) => (
-					<form onSubmit={handleSubmit}>
-						<label>title</label>
-						<input
-							type="text"
-							name="title"
-							placeholder="Write a title"
-							onChange={handleChange}
-							value={values.title}
-						/>
+					<Form onSubmit={handleSubmit}>
+						<Form.Group>
+							<Form.Label>Primer campo</Form.Label>
+							<Form.Control
+								type="text"
+								name="title"
+								placeholder="Llena este campo"
+								onChange={handleChange}
+								value={values.title}
+							/>
+						</Form.Group>
 
-						<label>description</label>
-						<textarea
-							name="description"
-							rows="3"
-							placeholder="Write a description"
-							onChange={handleChange}
-							value={values.description}
-						></textarea>
-
-						<button type="submit" disabled={isSubmitting}>
-							{isSubmitting ? "Saving..." : "Save"}
-						</button>
-					</form>
+						<Form.Group>
+							<Form.Label>Primer descripcion</Form.Label>
+							<Form.Control as="textarea"
+								name="description"
+								rows="3"
+								placeholder="Inttroduce una descripcion"
+								onChange={handleChange}
+								value={values.description}
+							/> 
+						</Form.Group>
+					<br />
+						<Button type="submit" disabled={isSubmitting}>
+							{isSubmitting ? "Saving..." : "Aceptar"}
+						</Button>
+					</Form>
 				)}
 			</Formik>
-		</div>
+		</Container>
 	);
 };

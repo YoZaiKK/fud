@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import FudCard from "../components/FudCard";
 import { useFuds } from "../context/FudContext";
+import Container from "react-bootstrap/Container";
 
 export const FudPage = function () {
 	const { fud, loadFud } = useFuds();
 	console.log(fud);
 
-	useEffect(() => { 
-		loadFud(); 
+	useEffect(() => {
+		loadFud();
 	}, []);
 
 	function renderMain() {
@@ -17,8 +18,10 @@ export const FudPage = function () {
 
 	return (
 		<div>
-			<h1>Fuds</h1>
-			{renderMain()}
+			<Container>
+				<h1>Fuds</h1>
+				{renderMain()}
+			</Container>
 		</div>
 	);
 };
