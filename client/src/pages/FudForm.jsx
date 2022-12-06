@@ -12,6 +12,7 @@ export const FudForm = () => {
 		title: "",
 		description: "",
 	});
+	
 	const navigate = useNavigate();
 	const params = useParams();
 
