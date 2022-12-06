@@ -16,7 +16,7 @@ function FudCard({ fud }) {
 				<Card.Body>
 					<Card.Title>
 						{" "}
-						<cite title="Source Title">Title: </cite> {fud.title.toUpperCase()}
+						<cite title="Source Title">Title: </cite> {fud.title.charAt(0).toUpperCase() + fud.title.slice(1)}
 					</Card.Title>
 					<Card.Text>
 						{" "}

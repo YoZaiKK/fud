@@ -8,16 +8,28 @@ import { useNavigate } from "react-router-dom";
 export const NavbarComponent = () => {
 	const navigate = useNavigate();
 	return (
-		<Navbar>
-			<Navbar.Brand> Formato Único de Declaración</Navbar.Brand>
-			<Nav>
-				<Nav.Link>
-					<Link to="/">Home</Link>
-				</Nav.Link>
-				<Nav.Link>
-					<Link to="/new">Create task</Link>
-				</Nav.Link>
-			</Nav>
-		</Navbar>
+		<Container>
+			<Navbar>
+				<Navbar.Brand> Formato Único de Declaración</Navbar.Brand>
+				<Nav>
+					<Nav.Link href='/'>
+						{/* <Link to="/">Home</Link> */}
+						Home
+					</Nav.Link>
+					<Nav.Link href='/resultados'>
+						{/* <Link to="/">Home</Link> */}
+						Resultados
+					</Nav.Link> 
+					{/* papure */}	
+					<NavDropdown title="Victima" id="basic-nav-dropdown">
+						<NavDropdown.Item href="/new">Registro</NavDropdown.Item>
+						<NavDropdown.Divider />
+						<NavDropdown.Item href="#action/3.4">
+							Separated link
+						</NavDropdown.Item>
+					</NavDropdown>
+				</Nav>
+			</Navbar>
+		</Container>
 	);
 };
