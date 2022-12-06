@@ -69,7 +69,7 @@ export const FudForm = () => {
 						</Form.Group>
 					<br />
 						<Button type="submit" disabled={isSubmitting}>
-							{isSubmitting ? "Saving..." : "Aceptar"}
+							{isSubmitting ? "Saving..." : "Acept"}
 						</Button>
 					</Form>
 				)}
