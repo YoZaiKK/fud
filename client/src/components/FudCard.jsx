@@ -21,7 +21,7 @@ function FudCard({ fud }) {
 			</button>
 
 			<button onClick={() => navigate(`/edit/${fud.id}`)}>Edit</button>
-			<button onClick={() => handleDone(fud.done)}>Toggle fud</button>
+			<button onClick={() => handleDone(fud.done)}>Toggle Fud status</button>
 		</div>
 	);
 }
