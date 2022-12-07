@@ -11,15 +11,20 @@ function FudCard({ fud }) {
 		await toggleFudDone(fud.id);
 	};
 	return (
-		<Container>
-			<Card style={{ width: "18rem" }}>
+		<Container
+			className="text-center"
+			style={{
+				width: "18rem",
+				margin: "15px",
+			}}
+		>
+			<Card>
 				<Card.Body>
 					<Card.Title>
-						{" "}
-						<cite title="Source Title">Title: </cite> {fud.title.charAt(0).toUpperCase() + fud.title.slice(1)}
+						<cite title="Source Title">Title: </cite>
+						{fud.title.charAt(0).toUpperCase() + fud.title.slice(1)}
 					</Card.Title>
 					<Card.Text>
-						{" "}
 						<cite title="Source Title">description: </cite> {fud.description}
 					</Card.Text>
 					<Button
@@ -28,30 +33,28 @@ function FudCard({ fud }) {
 						variant={fud.done === 1 ? "primary" : "danger"}
 					>
 						{fud.done === 1 ? "Status bueno " : " Sin proceso "}
-					</Button>{" "}
+					</Button>
 					<br /> <br />
-					{/* <span>{fud.createdAt}</span> */}
 					<div className="d-grid gap-2">
 						<Button
-							variant="danger"
-							size="lg"
+							variant="secondary"
+							size="sm"
+							onClick={() => navigate(`/edit/${fud.id}`)}
+						>
+							Edit
+						</Button>
+						<Button
+							variant="outline-danger"
+							size="sm"
 							onClick={() => {
 								deleteFud(fud.id);
 							}}
 						>
 							Delete
 						</Button>
-
 						<Button
-							variant="secondary"
-							size="lg"
-							onClick={() => navigate(`/edit/${fud.id}`)}
-						>
-							Edit
-						</Button>
-						<Button
-							variant="info"
-							size="lg"
+							variant="outline-info"
+							size="sm"
 							onClick={() => handleDone(fud.done)}
 						>
 							Toggle Fud status
