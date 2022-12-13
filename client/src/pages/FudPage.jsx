@@ -13,10 +13,8 @@ export const FudPage = function () {
 
 	function renderMain() {
 		if (fud.length === 0) return <h2>No fuds yet</h2>;
-		return fud.map((fud) => (
-			<div>
-				<FudCard fud={fud} key={fud.id} />
-			</div>
+		return fud.map((fud) => ( 
+				<FudCard fud={fud} key={fud.id} /> 
 		));
 	}
 
