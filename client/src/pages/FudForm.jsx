@@ -15,7 +15,7 @@ export const FudForm = () => {
   const [fuds, setFuds] = useState({
     title: "",
     description: "",
-  });  
+  });
   let curpValido = false;
   // const navigate = useNavigate();
   const params = useParams();
@@ -34,7 +34,7 @@ export const FudForm = () => {
     loadFud();
   }, []);
 
- 
+
   //Función para validar una CURP
   function curpValida(curp) {
     var re = /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/,
@@ -172,7 +172,7 @@ export const FudForm = () => {
                 <Accordion.Body>
                   <Container>
                     <Row>
-                      <Form.Label>Registrante</Form.Label>
+                      <Form.Label>Tipo de victima</Form.Label>
                     </Row>
                     <Row>
                       <Col>
@@ -231,12 +231,36 @@ export const FudForm = () => {
                     />
                     <br />
                     {curpValido ?
-                      null :
+                      <Alert variant="success">
+                        CURP valido
+                      </Alert> :
                       <Alert variant="danger">
                         CURP invalido
                       </Alert>
                     }
- 
+                    <Row>
+                      <Form.Label>Sexo</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="sexo" value="hombre" />
+                          Hombre
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="sexo"
+                            value="mujer"
+                          />
+                          Mujer
+                        </Form.Label>
+                      </Col>
+                      <Col>
+                      </Col>
+                    </Row>
                   </Form.Group>
                 </Accordion.Body>
               </Accordion.Item>
