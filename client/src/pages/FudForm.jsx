@@ -36,7 +36,7 @@ export const FudForm = () => {
 		};
 		loadFud();
 	}, []);
-	function variasVictimas(victimas) {
+	function variasVictimas({victimas}) {
 		let arrayVictimas = [];
 		for (let i = 0; i < victimas; i++) {
 			arrayVictimas.push(
@@ -408,7 +408,7 @@ export const FudForm = () => {
 									<Accordion.Header>Relacion con la victima</Accordion.Header>
 									<Accordion.Body>
 										{variasVictimas({
-											values: values.numVictimas,
+											victimas: values.numVictimas,
 											handleChange: handleChange,
 										})}
 									</Accordion.Body>
