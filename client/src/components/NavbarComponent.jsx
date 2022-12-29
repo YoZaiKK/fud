@@ -27,6 +27,7 @@ export const NavbarComponent = () => {
 						<NavDropdown.Item href="#action/3.4">
 							Separated link
 						</NavDropdown.Item>
+						<NavDropdown.Item href="/Formulario">Acercamiento NNA</NavDropdown.Item>
 					</NavDropdown>
 				</Nav>
 			</Navbar>
