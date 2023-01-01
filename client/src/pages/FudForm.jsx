@@ -36,7 +36,7 @@ export const FudForm = () => {
 		};
 		loadFud();
 	}, []);
-	function variasVictimas({victimas}) {
+	function variasVictimas({ victimas }) {
 		let arrayVictimas = [];
 		for (let i = 0; i < victimas; i++) {
 			arrayVictimas.push(
@@ -502,75 +502,96 @@ export const FudForm = () => {
 									</Form.Group>
 									{values.alreadyDenuncia == "si" ? (
 										<Container>
-											<Form.Label>¿Denuncia Local o federal?</Form.Label>
-											<Form.Group>
-												<Row>
-													<Col>
-														<Form.Label>
-															<Field
-																type="radio"
-																name="tipoDenuncia"
-																value="local"
-															/>{" "}
-															Local
-														</Form.Label>
-													</Col>
-													<Col>
-														<Form.Label>
-															<Field
-																type="radio"
-																name="tipoDenuncia"
-																value="federal"
-															/>{" "}
-															Dederal
-														</Form.Label>
-													</Col>
-												</Row>
-											</Form.Group>
-											<Form.Label>¿Tipo de Proceso?</Form.Label>
-											<Form.Group>
-												<Row>
-													<Col>
-														<Form.Label>
-															<Field
-																type="radio"
-																name="tipoProcesoDenuncia"
-																value="invMinisterial"
-															/>{" "}
-															Investigacion administrativa
-														</Form.Label>
-													</Col>
-													<Col>
-														<Form.Label>
-															<Field
-																type="radio"
-																name="tipoProcesoDenuncia"
-																value="procJudicial"
-															/>{" "}
-															Proceso Juridico
-														</Form.Label>
-													</Col>
-													<Col>
-														<Form.Label>
-															<Field
-																type="radio"
-																name="tipoProcesoDenuncia"
-																value="procOrgNacional"
-															/>{" "}
-															Proceso ante organizacion nacional
-														</Form.Label>
-													</Col>
-												</Row>
-											</Form.Group>
-											<Form.Label className="mt-2">
-												Fecha de denuncia
+											<Form.Label>
+												Via investigacion ministerial, proceso judicial o
+												proceso ante organizacion nacional
 											</Form.Label>
 											<Form.Group>
-												<Form.Control
-													type="date"
-													name="fechaDenuncia"
-													onChange={handleChange}
-												/>
+												<Row>
+													<Col>
+														<Form.Label>
+															<Field
+																type="radio"
+																name="tipoDenuncia"
+																value="invMinisterial"
+															/>{" "}
+															investigacion ministerial
+														</Form.Label>
+													</Col>
+													<Col>
+														<Form.Label>
+															<Field
+																type="radio"
+																name="tipoDenuncia"
+																value="procJudicial"
+															/>{" "}
+															proceso judicial
+														</Form.Label>
+													</Col>
+													<Col>
+														<Form.Label>
+															<Field
+																type="radio"
+																name="tipoDenuncia"
+																value="orgDerechosHumanos"
+															/>{" "}
+															Proc. ante Org. Nacionales e Internacionales de
+															derechos humanos
+														</Form.Label>
+													</Col>
+												</Row>
+											</Form.Group>
+											<Form.Group>
+												<Row>
+													<Col xs={2}>
+														<Form.Label className="mt-2">Fecha </Form.Label>
+													</Col>
+													<Col xs={3}>
+														<Form.Control type="date" name="fechaDenuncia" />
+													</Col>
+												</Row>
+											</Form.Group>
+											<Form.Group>
+												<Row>
+													<Col xs={2}>
+														<Form.Label>Entidad federativa</Form.Label>
+													</Col>
+													<Col>
+														<Form.Control
+															type="text"
+															name="entidadFedDenuncia"
+															onChange={handleChange}
+														/>
+													</Col>
+												</Row>
+											</Form.Group>
+											<Form.Group>
+												<Row>
+													<Col xs={2}>
+														<Form.Label>Delito</Form.Label>
+													</Col>
+													<Col>
+														<Form.Control
+															type="text"
+															name="delito"
+															onChange={handleChange}
+														/>
+													</Col>
+												</Row>
+											</Form.Group>
+											<Form.Group>
+												<Row>
+													<Col xs={2}>
+														<Form.Label>Estado de la investigacion</Form.Label>
+													</Col>
+													<Col>
+														<Form.Control
+															type="text"
+															name="edoInvestigacion"
+															onChange={handleChange}
+														/>
+													</Col>
+												</Row>
 											</Form.Group>
 										</Container>
 									) : (
@@ -584,27 +605,351 @@ export const FudForm = () => {
 							<Accordion.Item eventKey="5">
 								<Accordion.Header>Informacion adicional</Accordion.Header>
 								<Accordion.Body>
-									<Form.Label>¿La victima es niño o adolescete?</Form.Label>
-									<Form.Group>
-										<Row>
-											<Col>
-												<Form.Label>
-													<Field
-														type="radio"
-														name="childOrTeen"
-														value="child"
+									{values.tutor == "Si" ? (
+										<Card>
+											<Card.Header>Datos del tutor</Card.Header>
+											<Card.Body>
+												<Form.Label>Nombre completo del tutor</Form.Label>
+												<Form.Group>
+													<Form.Control
+														type="text"
+														name="edoInvestigacion"
+														placeholder="Nombre del tutor"
+														onChange={handleChange}
+													/>
+												</Form.Group>
+												<Row>
+													<Col xs={1}>
+														<Form.Label>Edad</Form.Label>
+													</Col>
+													<Col xs={3}>
+														<Form.Control
+															type="number"
+															name="edadTutor"
+															placeholder="30..."
+															onChange={handleChange}
+														/>
+													</Col>
+													<Col xs={4}>
+														<Form.Label>Cantidad de telefonos</Form.Label>
+													</Col>
+													<Col xs={2}>
+														<Form.Control
+															type="number"
+															name="numerosTelefonicos"
+															placeholder="1..."
+															onChange={handleChange}
+														/>
+													</Col>
+												</Row>
+											</Card.Body>
+										</Card>
+									) : null}
+									<Card className=" my-2">
+										<Card.Header>Datos del NNA</Card.Header>
+										<Card.Body>
+											<Form.Group>
+												<Row>
+													<Col xs={6}>
+														<Form.Label>
+															¿La victima es niño o adolescete?
+														</Form.Label>
+													</Col>
+													<Col xs={3}>
+														<Form.Label>
+															<Field
+																type="radio"
+																name="childOrTeen"
+																value="child"
+															/>{" "}
+															Niño
+														</Form.Label>
+													</Col>
+													<Col xs={3}>
+														<Form.Label>
+															<Field
+																type="radio"
+																name="childOrTeen"
+																value="Teen"
+															/>{" "}
+															Adolescente
+														</Form.Label>
+													</Col>
+												</Row>
+											</Form.Group>
+											<Form.Group>
+												<Row>
+													<Col xs={6}>
+														<Form.Label>
+															¿Se encuentra en situacion de calle?
+														</Form.Label>
+													</Col>
+													<Col xs={3}>
+														<Form.Label>
+															<Field type="radio" name="sitCalle" value="si" />{" "}
+															Si
+														</Form.Label>
+													</Col>
+													<Col xs={3}>
+														<Form.Label>
+															<Field type="radio" name="sitCalle" value="no" />{" "}
+															No
+														</Form.Label>
+													</Col>
+												</Row>
+											</Form.Group>
+											<Form.Group>
+												<Row>
+													<Col xs={6}>
+														<Form.Label>¿Tiene alguna discapacidad?</Form.Label>
+													</Col>
+													<Col xs={3}>
+														<Form.Label>
+															<Field
+																type="radio"
+																name="discapacidad"
+																value="si"
+															/>{" "}
+															Si
+														</Form.Label>
+													</Col>
+													<Col xs={3}>
+														<Form.Label>
+															<Field
+																type="radio"
+																name="discapacidad"
+																value="no"
+															/>{" "}
+															No
+														</Form.Label>
+													</Col>
+												</Row>
+											</Form.Group>
+											{values.discapacidad == "si" ? (
+												<Card>
+													<Card.Header>Descripcion de discapacidad</Card.Header>
+													<Card.Body>
+														<Form.Group>
+															<Row>
+																<Col xs={1}>
+																	<Form.Label>Tipo</Form.Label>
+																</Col>
+																<Col xs={2}>
+																	<Form.Label>
+																		<Field
+																			type="radio"
+																			name="discapacidadTipo"
+																			value="fisica"
+																		/>{" "}
+																		Fisica
+																	</Form.Label>
+																</Col>
+																<Col xs={2}>
+																	<Form.Label>
+																		<Field
+																			type="radio"
+																			name="discapacidadTipo"
+																			value="mental"
+																		/>{" "}
+																		Mental
+																	</Form.Label>
+																</Col>
+																<Col xs={2}>
+																	<Form.Label>
+																		<Field
+																			type="radio"
+																			name="discapacidadTipo"
+																			value="intelectual"
+																		/>{" "}
+																		Intelectual
+																	</Form.Label>
+																</Col>
+																<Col xs={2}>
+																	<Form.Label>
+																		<Field
+																			type="radio"
+																			name="discapacidadTipo"
+																			value="visual"
+																		/>{" "}
+																		Visual
+																	</Form.Label>
+																</Col>
+																<Col xs={2}>
+																	<Form.Label>
+																		<Field
+																			type="radio"
+																			name="discapacidadTipo"
+																			value="auditiva"
+																		/>{" "}
+																		Auditiva
+																	</Form.Label>
+																</Col>
+															</Row>
+														</Form.Group>
+														<Form.Group>
+															<Row>
+																<Col xs={3}>
+																	<Form.Label>Grado de dependencia</Form.Label>
+																</Col>
+																<Col xs={2}>
+																	<Form.Label>
+																		<Field
+																			type="radio"
+																			name="discapacidadDependencia"
+																			value="1"
+																		/>{" "}
+																		Moderada
+																	</Form.Label>
+																</Col>
+																<Col xs={2}>
+																	<Form.Label>
+																		<Field
+																			type="radio"
+																			name="discapacidadDependencia"
+																			value="2"
+																		/>{" "}
+																		Severa
+																	</Form.Label>
+																</Col>
+																<Col xs={3}>
+																	<Form.Label>
+																		<Field
+																			type="radio"
+																			name="discapacidadDependencia"
+																			value="3"
+																		/>{" "}
+																		Gran dependencia
+																	</Form.Label>
+																</Col>
+															</Row>
+														</Form.Group>
+													</Card.Body>
+												</Card>
+											) : null}
+											<Form.Group>
+												<Row>
+													<Col xs={2}>
+														<Form.Label>¿Es migrante?</Form.Label>
+													</Col>
+													<Col xs={3}>
+														<Form.Label>
+															<Field type="radio" name="migrante" value="si" />{" "}
+															Si
+														</Form.Label>
+													</Col>
+													<Col xs={3}>
+														<Form.Label>
+															<Field type="radio" name="migrante" value="no" />{" "}
+															No
+														</Form.Label>
+													</Col>
+												</Row>
+											</Form.Group>
+											{values.migrante == "si" ? (
+												<>
+													<Form.Control
+														type="text"
+														name="migrantePais"
+														placeholder="Pais de origen"
+														onChange={handleChange}
 													/>{" "}
-													Niño
-												</Form.Label>
-											</Col>
-											<Col>
-												<Form.Label>
-													<Field type="radio" name="childOrTeen" value="Teen" />{" "}
-													Adolescente
-												</Form.Label>
-											</Col>
-										</Row>
-									</Form.Group>
+												</>
+											) : null}
+											<Form.Group>
+												<Row>
+													<Col xs={2}>
+														<Form.Label>¿Habla español?</Form.Label>
+													</Col>
+													<Col xs={3}>
+														<Form.Label>
+															<Field
+																type="radio"
+																name="hispanohablante"
+																value="si"
+															/>{" "}
+															Si
+														</Form.Label>
+													</Col>
+													<Col xs={3}>
+														<Form.Label>
+															<Field
+																type="radio"
+																name="hispanohablante"
+																value="no"
+															/>{" "}
+															No
+														</Form.Label>
+													</Col>
+												</Row>
+											</Form.Group>
+											{values.hispanohablante == "no" ? (
+												<Form.Group>
+													<Row>
+														<Col xs={3}>
+															<Form.Label>¿Requiere traductor?</Form.Label>
+														</Col>
+														<Col xs={3}>
+															<Form.Label>
+																<Field
+																	type="radio"
+																	name="traductor"
+																	value="si"
+																/>{" "}
+																Si
+															</Form.Label>
+														</Col>
+														<Col xs={3}>
+															<Form.Label>
+																<Field
+																	type="radio"
+																	name="traductor"
+																	value="no"
+																/>{" "}
+																No
+															</Form.Label>
+														</Col>
+													</Row>
+												</Form.Group>
+											) : null}
+											<Form.Group>
+												<Row>
+													<Col xs={6}>
+														<Form.Label>
+															¿Pertenece a una poblacion o comunidad indigena?
+														</Form.Label>
+													</Col>
+													<Col xs={2}>
+														<Form.Label>
+															<Field
+																type="radio"
+																name="comunidadIndigena"
+																value="si"
+															/>{" "}
+															Si
+														</Form.Label>
+													</Col>
+													<Col xs={2}>
+														<Form.Label>
+															<Field
+																type="radio"
+																name="comunidadIndigena"
+																value="no"
+															/>{" "}
+															No
+														</Form.Label>
+													</Col>
+												</Row>
+											</Form.Group>
+											{values.comunidadIndigena == "si" ? (
+												<Form.Control
+													type="text"
+													name="comunidadIndigenaNombre"
+													placeholder="Nombre de la poblacion"
+													onChange={handleChange}
+												/>
+											) : null}
+										</Card.Body>
+									</Card>
 								</Accordion.Body>
 							</Accordion.Item>
 						</Accordion>
