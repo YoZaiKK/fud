@@ -24,10 +24,9 @@ export const NavbarComponent = () => {
 					<NavDropdown title="Victima" id="basic-nav-dropdown">
 						<NavDropdown.Item href="/new">Registro</NavDropdown.Item>
 						<NavDropdown.Divider />
-						<NavDropdown.Item href="#action/3.4">
-							Separated link
-						</NavDropdown.Item>
-						<NavDropdown.Item href="/Formulario">Acercamiento NNA</NavDropdown.Item>
+						<NavDropdown.Item href="/Seguimiento">Dar seguimiento</NavDropdown.Item>
+						{/*<NavDropdown.Divider />
+						<NavDropdown.Item href="/Formulario">Acercamiento NNA</NavDropdown.Item>*/}
 					</NavDropdown>
 				</Nav>
 			</Navbar>
