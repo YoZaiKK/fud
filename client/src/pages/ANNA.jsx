@@ -69,12 +69,8 @@ export const ANNA = () => {
         enableReinitialize={true}
         onSubmit={async (values, actions) => {
           console.log(values);
-          // params.id
-          // 	? await updateFud(params.id, values)
-          // 	: await createFud(values);
           console.log(fuds);
           setFuds({ title: "", description: "" });
-          // navigate("/");
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
@@ -124,108 +120,362 @@ export const ANNA = () => {
                       onChange={handleChange}
                     />
                   </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Registro textual de su reaccion al pedirle dibujar a su familia</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="textodibujo"
+                      placeholder="Ser lo mas consiso posible"
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Registro textual si algo lo molesta o lastima dentro de su entorno familiar</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="textoentorno"
+                      placeholder="Ser lo mas consiso posible"
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Registro textual de su reaccion al pedirle dibujar a su familia</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="textodibujo"
+                      placeholder="Ser lo mas consiso posible"
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Registro de a quien dice o demuestra temer</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="textotemer"
+                      placeholder="Si es mas de uno, separarlo con una coma ',' "
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>¿Qué adulto le resulta signifcativo o quiere tener cerca?</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="textocerca"
+                      placeholder="Si es mas de uno, separarlo con una coma ',' "
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>¿Qué come normalmente?</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="textocomida"
+                      placeholder="Separar las comidas mediante una coma ',' "
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>¿Quien lo cuida la mayor parte del tiempo?</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="textocomida"
+                      placeholder="Si son varias personas, separarlas mediante una coma ',' "
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>¿Cuándo fue la ultima vez que fue al doctor?</Form.Label>
+                    <Form.Control
+                      type="Date"
+                      name="FechaDoctor"
+                      placeholder="Fecha"
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
                 </Accordion.Body>
               </Accordion.Item>
 
               <Accordion.Item eventKey="2">
-                <Accordion.Header>Datos de la Victima</Accordion.Header>
+                <Accordion.Header>Datos Complementarios</Accordion.Header>
                 <Accordion.Body>
                   <Container>
-                    <Row>
-                      <Form.Label>Tipo de victima</Form.Label>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <Form.Label>
-                          <Field type="radio" name="tipoVictima" value="directa" />
-                          Directa
-                        </Form.Label>
-                      </Col>
-                      <Col >
-                        <Form.Label>
-                          <Field
-                            type="radio"
-                            name="tipoVictima"
-                            value="indirecta"
-                          />
-                          Indirecta
-                        </Form.Label>
-                      </Col>
-                      <Col>
-                        <Form.Label>
-                          <Field
-                            type="radio"
-                            name="tipoVictima"
-                            value="potencial"
-                          />
-                          Potencial
-                        </Form.Label>
-                      </Col>
-                    </Row>
-                  </Container>
                   <Form.Group>
-                    <Form.Label>Nombre completo </Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="nombreVictima"
-                      placeholder="Nombre(s), Primer apellido, Segundo apellido"
-                      onChange={handleChange}
-                    />
-                    <Form.Label>Fecha de nacimiento </Form.Label>
-                    <Form.Control
-                      type="date"
-                      name="fechaNacimiento"
-                      onChange={handleChange}
-                    />
-
-                    <Form.Label>CURP </Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="curp"
-                      placeholder="Nombre(s), Primer apellido, Segundo apellido"
-                      onChange={handleChange}
-                      onInput={(e) => {
-                        console.log(e.target.value)
-                        curpValido = (curpValida(e.target.value))
-                      }}
-                    />
-                    <br />
-                    {curpValido ?
-                      <Alert variant="success">
-                        CURP valido
-                      </Alert> :
-                      <Alert variant="danger">
-                        CURP invalido
-                      </Alert>
-                    }
                     <Row>
-                      <Form.Label>Sexo</Form.Label>
+                      <Form.Label>¿Has dejado de ver a alguien que quieres mucho?</Form.Label>
                     </Row>
                     <Row>
                       <Col>
                         <Form.Label>
-                          <Field type="radio" name="sexo" value="hombre" />
-                          Hombre
+                          <Field type="radio" name="veralguien" value="Si" />
+                          Si
                         </Form.Label>
                       </Col>
                       <Col >
                         <Form.Label>
                           <Field
                             type="radio"
-                            name="sexo"
-                            value="mujer"
+                            name="veralguien"
+                            value="No"
                           />
-                          Mujer
+                          No
                         </Form.Label>
                       </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Tiene algún hermano/a que no viva con la familia?</Form.Label>
+                    </Row>
+                    <Row>
                       <Col>
+                        <Form.Label>
+                          <Field type="radio" name="hermanoa" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="hermanoa"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
                       </Col>
                     </Row>
+                    </Form.Group>
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿En tu hogar puedes dar tus opiniones libremente?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="OpinionLibre" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="OpinionLibre"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Ha visto peleas o cualquier otro tipo de violencia?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="Peleas" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="Peleas"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Ha recibido golpes o insultos?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="GOP" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="GOP"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Ha estado enfermo?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="Enfermo" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="Enfermo"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Fue al doctor?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="Fdoctor" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="Fdoctor"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Form.Label>¿A qué hora se duerme?</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="Horadormir"
+                      placeholder="Ingrese la hora en formato de 24 hrs"
+                      onChange={handleChange}
+                    />
                   </Form.Group>
-                </Accordion.Body>
+
+                  <Form.Group>
+                    <Form.Label>¿A qué hora se levanta?</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="Horadespertar"
+                      placeholder="Ingrese la hora en formato de 24 hrs "
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+
+                  <Form.Group>
+                    <Form.Label>¿Cuándo juega?</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="TextoJuegos"
+                      placeholder="Indique en si tiene tiempos libres o si no juega"
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Va a la escuela?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="VEscuela" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="VEscuela"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Se junta con amigos a jugar o platicar?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="SAmigos" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="SAmigos"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Hace algún deporte?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="Deporte" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="Deporte"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                  </Container>
+                  </Accordion.Body>
               </Accordion.Item>
             </Accordion>
-            <br />
+            
+            
+            
+            <br/>
             <Button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Saving..." : "Acept"}
             </Button>{" "}
