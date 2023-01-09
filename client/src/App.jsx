@@ -9,6 +9,7 @@ import { NavbarComponent } from "./components/NavbarComponent.jsx";
 import { FudContextProvider  } from "./context/FudContext.jsx";
 import { Seguimiento } from "./pages/Seguimiento.jsx";
 import { IntSuperior } from "./pages/IntSuperior.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 				<Route path="/" element={<HomePage />} />
 				<Route path="/resultados" element={<FudPage />} />
 				<Route path="/new" element={<FudForm />} />
+				<Route path="/login" element={<LoginPage />} />
 				<Route path="/Seguimiento" element={<Seguimiento />} />
 				<Route path="/Formulario" element={<ANNA />} />
 				<Route path="/IntSuperior" element={<IntSuperior />} />
