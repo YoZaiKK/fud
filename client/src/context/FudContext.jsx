@@ -7,6 +7,9 @@ import {
 	updateFudRequest,
 	toggleFudDoneRequest,
 } from "../api/fud.api";
+import {
+	getUsrRequest,
+} from "../api/usr.api";
 
 export const FudContext = createContext();
 
@@ -75,11 +78,21 @@ export const FudContextProvider = ({ children }) => {
 			console.error(e);
 		}
 	};
-
+	// get single reg by id
+	const getUsr = async (rfc) => {
+		try {
+			const response = await getUsrRequest(rfc);
+			// setFud(fud.filter((fud) => fud.id !== id));
+			return response.data;
+		} catch (e) {
+			console.error(e);
+		}
+	};
 	return (
 		<FudContext.Provider
 			value={{
 				fud,
+				getUsr,
 				loadFud,
 				deleteFud,
 				createFud,

@@ -6,10 +6,10 @@ import { FudForm } from "./pages/FudForm.jsx";
 import { NotFound } from "./pages/NotFound.jsx";
 import { ANNA } from "./pages/ANNA.jsx";
 import { NavbarComponent } from "./components/NavbarComponent.jsx";
-import { FudContextProvider  } from "./context/FudContext.jsx";
+import { FudContextProvider } from "./context/FudContext.jsx";
 import { Seguimiento } from "./pages/Seguimiento.jsx";
 import { IntSuperior } from "./pages/IntSuperior.jsx";
-import LoginPage from "./pages/LoginPage.jsx";
+import { LoginPage } from "./pages/LoginPage.jsx";
 
 function App() {
 	return (

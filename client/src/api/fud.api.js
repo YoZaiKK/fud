@@ -17,3 +17,4 @@ export const updateFudRequest = async (id, newFields) =>
 
 export const toggleFudDoneRequest = async (id, done) =>
 	await axios.put(`http://localhost:3000/fud/${id}`, { done });
+
