@@ -10,6 +10,7 @@ import { FudContextProvider } from "./context/FudContext.jsx";
 import { Seguimiento } from "./pages/Seguimiento.jsx";
 import { IntSuperior } from "./pages/IntSuperior.jsx";
 import { LoginPage } from "./pages/LoginPage.jsx";
+import { AcercamientoFam } from "./pages/AcercamientoFam.jsx";
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 				<Route path="/Seguimiento" element={<Seguimiento />} />
 				<Route path="/Formulario" element={<ANNA />} />
 				<Route path="/IntSuperior" element={<IntSuperior />} />
+				<Route path="/AcercamientoFam" element={<AcercamientoFam />} />
 				<Route path="/edit/:id" element={<FudForm />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
