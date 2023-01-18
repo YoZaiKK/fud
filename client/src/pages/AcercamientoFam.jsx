@@ -437,11 +437,400 @@ export const AcercamientoFam = () => {
                     </Row>
                     </Form.Group>
 
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Tiene acta de nacimiento?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="acta_nac" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="acta_nac"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿La opinion del NNA es considerada y tomada en cuenta?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="opinion_nna" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="opinion_nna"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Alguien lo cuida la mayor parte del tiempo?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="cuidar_nna" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="cuidar_nna"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Ha recibido golpes o insultos?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="golpe_insulto" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="golpe_insulto"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Come tres veces al dia?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="comidas_al_dia" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="comidas_al_dia"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Tiene cartilla de vacunacion?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="cartilla_vac" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="cartilla_vac"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Tiene seguro medico de algun tipo?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="seg_medico" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="seg_medico"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Requiere aditamentos (silla de ruedas, muletas, etc.)?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="aditamento_adic" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="aditamento_adic"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Va a la escuela?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="va_escuela" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="va_escuela"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Hace algun deporte?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="practica_deporte" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="practica_deporte"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+
+                  </Container>
+                  </Accordion.Body>
+              </Accordion.Item>
+
+              <Accordion.Item eventKey="5">
+                <Accordion.Header>Observaciones sobre el grado de negociacion y afeccion emocional del adulto</Accordion.Header>
+                <Accordion.Body>
+                  <Container>
+                  <Form.Group>
+                    <Row>
+                      <Form.Label>¿Es cooperativo al responder las preguntas?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="cooperativo" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="cooperativo"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Muestra interes en el NNA?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="interes_en_nna" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="interes_en_nna"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Sus respuestas son claras y concisas?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="claro_conciso" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="claro_conciso"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Es consciente de la situacion del NNA?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="conciente_situ" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="conciente_situ"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+                    <Form.Group>
+                    <Row>
+                      <Form.Label>¿Se muestra preocupado por la situaion del NNA?</Form.Label>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Label>
+                          <Field type="radio" name="preocupado" value="Si" />
+                          Si
+                        </Form.Label>
+                      </Col>
+                      <Col >
+                        <Form.Label>
+                          <Field
+                            type="radio"
+                            name="preocupado"
+                            value="No"
+                          />
+                          No
+                        </Form.Label>
+                      </Col>
+                    </Row>
+                    </Form.Group>
+                    <Form.Group>
+                    <Form.Label>Observaciones adicionales</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="observaciones_ad"
+                      placeholder="Escribir las observaciones adicionales"
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Narracion general de los hechos</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="narracion_gen"
+                      placeholder="Escribir la narracion general de los hechos"
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Idenetificador de quien llena este documento</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="identificador"
+                      placeholder="Identificador"
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
                   </Container>
                   </Accordion.Body>
               </Accordion.Item>
             </Accordion>
-
             <br/>
             <Button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Saving..." : "Acept"}
