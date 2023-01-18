@@ -9,6 +9,9 @@ import {
 } from "../api/fud.api";
 import {
 	getUsrRequest,
+	deleteUsrRequest,
+	createUsrRequest,
+	updateUsrRequest,
 } from "../api/usr.api";
 
 export const FudContext = createContext();
@@ -88,11 +91,22 @@ export const FudContextProvider = ({ children }) => {
 			console.error(e);
 		}
 	};
+
+	const createUsr = async (campos) => {
+		try {
+			const response = await createUsrRequest(campos);
+			// setFud(fud.filter((fud) => fud.id !== id));
+			return response.data;
+		} catch (e) {
+			console.error(e);
+		}
+	};
 	return (
 		<FudContext.Provider
 			value={{
 				fud,
 				getUsr,
+				createUsr,
 				loadFud,
 				deleteFud,
 				createFud,

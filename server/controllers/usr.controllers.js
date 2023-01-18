@@ -3,7 +3,7 @@ import { pool } from "../db.js";
 export const getUsr = async (req, res) => {
 	try {
 		const [result] = await pool.query(
-			"SELECT * FROM tabla_trabajador WHERE rfc = ?",
+			"SELECT nombre, primer_apellido, contrasena  FROM tabla_trabajador WHERE rfc = ?",
 			[req.params.rfc]
 		);
 		if (result.length === 0) {
@@ -17,12 +17,29 @@ export const getUsr = async (req, res) => {
 
 export const createUsr = async (req, res) => {
 	try {
-		const { title, description } = req.body;
+		const {
+			rfc,
+			nombre,
+			primer_apellido,
+			segundo_apellido,
+			contrasena,
+			ocupa,
+		} = req.body;
+
 		const [result] = await pool.query(
-			"INSERT INTO tasks(title, description) VALUES(?, ?)",
-			[title, description]
+			"INSERT INTO tabla_trabajador(rfc, nombre, primer_apellido, segundo_apellido, contrasena, ocupa) VALUES(? , ? , ? , ? , ? , ?);",
+			[rfc, nombre, primer_apellido, segundo_apellido, contrasena, ocupa]
 		);
-		res.json({ id: result.insertId, title, description });
+
+		res.json({
+			id: result.insertId,
+			rfc,
+			nombre,
+			primer_apellido,
+			segundo_apellido,
+			contrasena,
+			ocupa,
+		});
 	} catch (error) {
 		return res.status(500).json({ message: error.message });
 	}
@@ -30,9 +47,9 @@ export const createUsr = async (req, res) => {
 
 export const updateUsr = async (req, res) => {
 	try {
-		const result = await pool.query("UPDATE tasks SET ? WHERE id = ?", [
+		const result = await pool.query("UPDATE tabla_trabajador SET ? WHERE rfc = ?", [
 			req.body,
-			req.params.id,
+			req.params.rfc,
 		]);
 
 		res.json(result);
@@ -43,11 +60,11 @@ export const updateUsr = async (req, res) => {
 
 export const deleteUsr = async (req, res) => {
 	try {
-		const [result] = await pool.query("DELETE FROM tasks WHERE id = ?", [
-			req.params.id,
+		const [result] = await pool.query("DELETE FROM tabla_trabajador WHERE rfc = ?", [
+			req.params.rfc,
 		]);
 		if (result.length === 0) {
-			return res.status(404).json({ message: "Fud not found" });
+			return res.status(404).json({ message: "Worker not found" });
 		}
 		return res.sendStatus(204);
 	} catch (error) {

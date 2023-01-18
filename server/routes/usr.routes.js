@@ -1,15 +1,17 @@
-
 import { Router } from "express";
 import {
-	getUsr, 
+	getUsr,
+	createUsr,
+	updateUsr,
+	deleteUsr,
 } from "../controllers/usr.controllers.js";
 
 const router = Router();
 
 // router.get("/fud", getFuds);
 router.get("/usr/:rfc", getUsr);
-// router.post("/fud", createFuds);
-// router.put("/fud/:id", updateFuds);
-// router.delete("/fud/:id", deleteFuds);
+router.post("/usr", createUsr);
+router.put("/usr/:rfc", updateUsr);
+router.delete("/usr/:rfc", deleteUsr);
 
 export default router;
