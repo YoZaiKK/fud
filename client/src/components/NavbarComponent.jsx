@@ -12,22 +12,26 @@ export const NavbarComponent = () => {
 			<Navbar>
 				<Navbar.Brand> Formato Único de Declaración</Navbar.Brand>
 				<Nav>
-					<Nav.Link href='/'>
+					<Nav.Link href="/">
 						{/* <Link to="/">Home</Link> */}
 						Home
 					</Nav.Link>
-					<Nav.Link href='/resultados'>
+					<Nav.Link href="/resultados">
 						{/* <Link to="/">Home</Link> */}
 						Resultados
-					</Nav.Link> 
-					{/* papure */}	
+					</Nav.Link>
+					{/* papure */}
 					<NavDropdown title="Victima" id="basic-nav-dropdown">
 						<NavDropdown.Item href="/new">Registro</NavDropdown.Item>
 						<NavDropdown.Divider />
-						<NavDropdown.Item href="/Seguimiento">Dar seguimiento</NavDropdown.Item>
+						<NavDropdown.Item href="/Seguimiento">
+							Dar seguimiento
+						</NavDropdown.Item>
 						{/*<NavDropdown.Divider />
 						<NavDropdown.Item href="/Formulario">Acercamiento NNA</NavDropdown.Item>*/}
 					</NavDropdown>
+					<Nav.Link href="/login">Login</Nav.Link>
+					<Nav.Link href="/register">Register</Nav.Link>
 				</Nav>
 			</Navbar>
 		</Container>

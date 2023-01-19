@@ -82,11 +82,14 @@ export const FudContextProvider = ({ children }) => {
 		}
 	};
 	// get single reg by id
-	const getUsr = async (rfc) => {
+	const getUsr = async ({ rfc, contrasena }) => {
 		try {
-			const response = await getUsrRequest(rfc);
+			const { data } = await getUsrRequest(rfc);
 			// setFud(fud.filter((fud) => fud.id !== id));
-			return response.data;
+			console.log(data);
+			console.log("de la bd: ", data.contrasena);
+			console.log("del formulario: ", contrasena);
+			return data.contrasena == contrasena;
 		} catch (e) {
 			console.error(e);
 		}
@@ -96,6 +99,7 @@ export const FudContextProvider = ({ children }) => {
 		try {
 			const response = await createUsrRequest(campos);
 			// setFud(fud.filter((fud) => fud.id !== id));
+			console.log(response.data)
 			return response.data;
 		} catch (e) {
 			console.error(e);

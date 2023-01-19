@@ -5,8 +5,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import Alert from "react-bootstrap/Alert";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
+import Alert from "react-bootstrap/Alert"; 
 import { Formik, Field, Form as fm } from "formik";
 import { useFuds } from "../context/FudContext"; 
 
@@ -15,11 +14,8 @@ export const LoginPage = () => {
 	let rfcValido = false;
 	const [usr, setUsr] = useState({
 		rfc: "",
-    contrasea: "",
-	});
-	function apretar() {
-		console.log("apretado");
-	}
+    contrasena: "",
+	}); 
 
 	// useEffect(() => {
 	// 	const loadUsr = async () => {
@@ -28,7 +24,7 @@ export const LoginPage = () => {
 	// 			console.log(values);
 	// 			setUsr({
 	// 				rfc: values.rfc,
-	// 				contrasea: values.contrasea,
+	// 				contrasena: values.contrasena,
 	// 			});
 	// 		}
 	// 	};
@@ -44,14 +40,12 @@ export const LoginPage = () => {
 			<Formik
 				initialValues={usr}
 				enableReinitialize={true}
-				onSubmit={async (values, actions) => {
-					console.log(values);
-					apretar();
+				onSubmit={async (values, actions) => { 
           // params.rfc
 						// ? await getUsr(params.id, values)
 						// : await createUsr(values); 
-					await getUsr(values)
-					setUsr({ rfc: "", contrasea: "" });
+					let matchPass = await getUsr(values)  
+					setUsr({ rfc: "", contrasena: "" });
 				}}
 			>
 				{({ handleChange, handleSubmit, values, isSubmitting }) => (
@@ -91,7 +85,7 @@ export const LoginPage = () => {
 										<Form.Label>Contraseña</Form.Label>
 										<Form.Control
 											type="password"
-											name="contrasea"
+											name="contrasena"
 											placeholder="asdasdasd..."
 											onChange={handleChange}
 										/>
