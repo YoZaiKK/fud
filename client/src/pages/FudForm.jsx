@@ -36,6 +36,7 @@ export const FudForm = () => {
 		};
 		loadFud();
 	}, []);
+
 	function variasVictimas({ victimas }) {
 		let arrayVictimas = [];
 		for (let i = 0; i < victimas; i++) {
@@ -59,6 +60,29 @@ export const FudForm = () => {
 									name={`relVictima${i}`}
 									placeholder="Primo..."
 								/>
+							</Form.Group>
+							<Form.Group className="my-2">
+								<Form.Label>Curp </Form.Label>
+								<Form.Control type="text" name={`curpRel${i}`} />
+							</Form.Group>
+
+							<Form.Label>Sexo</Form.Label>
+							<Form.Group>
+								<Row>
+									<Col>
+										<Form.Label>
+											<Field type="radio" name={`Sexo${i}`} value="hombre" />
+											Hombre
+										</Form.Label>
+									</Col>
+									<Col>
+										<Form.Label>
+											<Field type="radio" name={`Sexo${i}`} value="mujer" />
+											Mujer
+										</Form.Label>
+									</Col>
+									<Col></Col>
+								</Row>
 							</Form.Group>
 						</Card.Body>
 					</Card>
@@ -146,6 +170,10 @@ export const FudForm = () => {
 											placeholder="Nombre(s), Primer apellido, Segundo apellido"
 											onChange={handleChange}
 										/>
+									</Form.Group>
+									<Form.Group className="my-2">
+										<Form.Label>Curp </Form.Label>
+										<Form.Control type="text" name={`curpSolicitante`} />
 									</Form.Group>
 									<br />
 									{values.registrante == "Fam" ? (
@@ -262,7 +290,7 @@ export const FudForm = () => {
 										<Form.Label>Curp </Form.Label>
 										<Form.Control
 											type="text"
-											name="curp"
+											name="curpVictima"
 											onChange={handleChange}
 											onInput={(e) => {
 												console.log(e.target.value);
@@ -605,7 +633,7 @@ export const FudForm = () => {
 							<Accordion.Item eventKey="5">
 								<Accordion.Header>Informacion adicional</Accordion.Header>
 								<Accordion.Body>
-									{values.tutor == "Si" ? (
+									{values.tutor == "No" ? (
 										<Card>
 											<Card.Header>Datos del tutor</Card.Header>
 											<Card.Body>

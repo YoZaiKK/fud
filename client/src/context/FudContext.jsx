@@ -87,8 +87,8 @@ export const FudContextProvider = ({ children }) => {
 			const { data } = await getUsrRequest(rfc);
 			// setFud(fud.filter((fud) => fud.id !== id));
 			console.log(data);
-			console.log("de la bd: ", data.contrasena);
-			console.log("del formulario: ", contrasena);
+			// console.log("de la bd: ", data.contrasena);
+			// console.log("del formulario: ", contrasena);
 			return data.contrasena == contrasena;
 		} catch (e) {
 			console.error(e);

@@ -5,17 +5,19 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import Alert from "react-bootstrap/Alert"; 
+import Alert from "react-bootstrap/Alert";
 import { Formik, Field, Form as fm } from "formik";
-import { useFuds } from "../context/FudContext"; 
+import { useFuds } from "../context/FudContext";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
 	const { getUsr } = useFuds();
+	const navigate = useNavigate()
 	let rfcValido = false;
 	const [usr, setUsr] = useState({
 		rfc: "",
-    contrasena: "",
-	}); 
+		contrasena: "",
+	});
 
 	// useEffect(() => {
 	// 	const loadUsr = async () => {
@@ -40,11 +42,12 @@ export const LoginPage = () => {
 			<Formik
 				initialValues={usr}
 				enableReinitialize={true}
-				onSubmit={async (values, actions) => { 
-          // params.rfc
-						// ? await getUsr(params.id, values)
-						// : await createUsr(values); 
-					let matchPass = await getUsr(values)  
+				onSubmit={async (values, actions) => {
+					let matchPass = await getUsr(values);
+					matchPass
+					? navigate('/')
+					:  console.log("contraseña o usuario incorrecto");
+
 					setUsr({ rfc: "", contrasena: "" });
 				}}
 			>
