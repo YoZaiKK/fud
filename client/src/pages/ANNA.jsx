@@ -139,15 +139,6 @@ export const ANNA = () => {
                     />
                   </Form.Group>
                   <Form.Group>
-                    <Form.Label>Registro textual de su reaccion al pedirle dibujar a su familia</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="textodibujo"
-                      placeholder="Ser lo mas consiso posible"
-                      onChange={handleChange}
-                    />
-                  </Form.Group>
-                  <Form.Group>
                     <Form.Label>Registro de a quien dice o demuestra temer</Form.Label>
                     <Form.Control
                       type="text"
