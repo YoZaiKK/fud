@@ -71,13 +71,13 @@ export const FudForm = () => {
 								<Row>
 									<Col>
 										<Form.Label>
-											<Field type="radio" name={`Sexo${i}`} value="hombre" />
+											<Field type="radio" name={`sexoRelVictima${i}`} value="hombre" />
 											Hombre
 										</Form.Label>
 									</Col>
 									<Col>
 										<Form.Label>
-											<Field type="radio" name={`Sexo${i}`} value="mujer" />
+											<Field type="radio" name={`sexoRelVictima${i}`} value="mujer" />
 											Mujer
 										</Form.Label>
 									</Col>
@@ -281,7 +281,7 @@ export const FudForm = () => {
 									<Form.Group>
 										<Form.Control
 											type="date"
-											name="fechaNacimiento"
+											name="fechaNacimientoVictima"
 											onChange={handleChange}
 										/>
 									</Form.Group>
@@ -310,13 +310,13 @@ export const FudForm = () => {
 										<Row>
 											<Col>
 												<Form.Label>
-													<Field type="radio" name="sexo" value="hombre" />
+													<Field type="radio" name="sexoVictima" value="hombre" />
 													Hombre
 												</Form.Label>
 											</Col>
 											<Col>
 												<Form.Label>
-													<Field type="radio" name="sexo" value="mujer" />
+													<Field type="radio" name="sexoVictima" value="mujer" />
 													Mujer
 												</Form.Label>
 											</Col>
